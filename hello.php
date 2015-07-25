@@ -3,6 +3,11 @@
 
 require_once 'app/Mage.php';
 umask(0);
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+$_SERVER['MAGE_IS_DEVELOPER_MODE'] = true;
+
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 $userModel = Mage::getModel('admin/user');
 $userModel->setUserId(0);
